@@ -12,10 +12,11 @@ class App extends React.Component {
       currentShoeId: null
     };
     this.onSlotClick = this.onSlotClick.bind(this);
+    this.onAddEdit = this.onAddEdit.bind(this);
   }
 
   componentDidMount() {
-    //To generate 25 empty slots although in a real site, 
+    //To generate 25 empty slots although in a real site,
     //this would probably be pulling from an API or database
     const shoeSlots = [];
     for (let i = 0; i < 25; i++) {
@@ -23,15 +24,26 @@ class App extends React.Component {
     }
     this.setState({
       data: shoeSlots
-    })
+    });
   }
 
   onSlotClick(e) {
+    this.setState(
+      {
+        showPopUp: !this.state.showPopUp,
+        popUpView: e.currentTarget.getAttribute('data-view'),
+        currentShoeId: e.currentTarget.dataset.shoe_id
+      },
+      () => console.log(this.state)
+    );
+  }
+
+  onAddEdit(props, newObj) {
+    let newData = { ...this.state.data };
+    newData[props.shoeId] = newObj;
     this.setState({
-      showPopUp: !this.state.showPopUp,
-      popUpView: e.currentTarget.getAttribute('data-view'),
-      currentShoeId: e.currentTarget.dataset.shoe_id
-    }, () => console.log(this.state))
+      data: newData
+    });
   }
 
   render() {
@@ -41,16 +53,30 @@ class App extends React.Component {
         <div className="gridWrapper">
           {this.state.data.map((shoe, i) => (
             <Shoe
-             shoe={shoe} 
-             key={i * 0.1}
-             shoeId={i}
-             onSlotClick={this.onSlotClick}
+              shoe={shoe}
+              key={i * 0.1}
+              shoeId={i}
+              onSlotClick={this.onSlotClick}
             />
           ))}
-          {this.state.showPopUp ? (this.state.popUpView === 'add' ? <Add /> : <EditOrDelete />) : null}
+          {this.state.showPopUp ? (
+            this.state.popUpView === 'add' ? (
+              <Add
+                originalObj={{...this.state.data[this.state.currentShoeId]}}
+                onAddEdit={this.onAddEdit}
+                shoeId={this.state.currentShoeId}
+              />
+            ) : (
+              <EditOrDelete
+                originalObj={{...this.state.data[this.state.currentShoeId]}}
+                onAddEdit={this.onAddEdit}
+                shoeId={this.state.currentShoeId}
+              />
+            )
+          ) : null}
         </div>
       </div>
-    )
+    );
   }
 }
 
