@@ -1,6 +1,6 @@
 import React from 'react';
 import Shoe from './Shoe';
-import { Add, EditOrDelete } from './AddEditDelete';
+import AddEditDelete from './AddEditDelete';
 
 class App extends React.Component {
   constructor(props) {
@@ -59,21 +59,7 @@ class App extends React.Component {
               onSlotClick={this.onSlotClick}
             />
           ))}
-          {this.state.showPopUp ? (
-            this.state.popUpView === 'add' ? (
-              <Add
-                originalObj={{...this.state.data[this.state.currentShoeId]}}
-                onAddEdit={this.onAddEdit}
-                shoeId={this.state.currentShoeId}
-              />
-            ) : (
-              <EditOrDelete
-                originalObj={{...this.state.data[this.state.currentShoeId]}}
-                onAddEdit={this.onAddEdit}
-                shoeId={this.state.currentShoeId}
-              />
-            )
-          ) : null}
+          {this.state.showPopUp ? <AddEditDelete view={this.state.popUpView}/> : null}
         </div>
       </div>
     );
