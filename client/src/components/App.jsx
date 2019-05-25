@@ -13,6 +13,7 @@ class App extends React.Component {
     };
     this.onSlotClick = this.onSlotClick.bind(this);
     this.onAddEditDelete = this.onAddEditDelete.bind(this);
+    this.onCancel = this.onCancel.bind(this);
   }
 
   componentDidMount() {
@@ -37,7 +38,7 @@ class App extends React.Component {
   onSlotClick(e) {
     this.setState(
       {
-        showPopUp: !this.state.showPopUp,
+        showPopUp: true,
         popUpView: e.currentTarget.getAttribute('data-view'),
         currentShoeId: e.currentTarget.dataset.shoe_id
       },
@@ -51,6 +52,12 @@ class App extends React.Component {
     this.setState({
       data: newData
     });
+  }
+
+  onCancel() {
+    this.setState({
+      showPopUp: false
+    })
   }
 
   render() {
@@ -69,6 +76,7 @@ class App extends React.Component {
           {this.state.showPopUp ? (
             <AddEditDelete
               onAddEditDelete={this.onAddEditDelete}
+              onCancel={this.onCancel}
               shoeId={this.state.currentShoeId}
               shoeObj={{ ...this.state.data[this.state.currentShoeId] }}
               view={this.state.popUpView}

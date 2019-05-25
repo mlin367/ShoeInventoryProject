@@ -47,30 +47,43 @@ class EditShoe extends React.Component {
         or external link:
         <input
           type="url"
-          onChange={(e) => this.onInputChange(e, 'image_url')}
+          onChange={e => this.onInputChange(e, 'image_url')}
           value={this.state.image_url}
         />
         Name:{' '}
         <input
-          onChange={(e) => this.onInputChange(e, 'name')}
+          onChange={e => this.onInputChange(e, 'name')}
           value={this.state.name}
         />
         Brand:{' '}
         <input
-          onChange={(e) => this.onInputChange(e, 'brand')}
+          onChange={e => this.onInputChange(e, 'brand')}
           value={this.state.brand}
         />
         Style:{' '}
         <input
-          onChange={(e) => this.onInputChange(e, 'style')}
+          onChange={e => this.onInputChange(e, 'style')}
           value={this.state.style}
+        />
+        Size:
+        <input
+          onChange={e => this.onInputChange(e, 'size')}
+          value={this.state.size}
         />
         UPC ID:{' '}
         <input
-          onChange={(e) => this.onInputChange(e, 'upc_id')}
+          onChange={e => this.onInputChange(e, 'upc_id')}
           value={this.state.upc_id}
         />
-        <button onClick={() => this.props.onAddEditDelete(this.props.shoeId, {...this.state})}>Submit</button>
+        <button
+          onClick={() => {
+            this.props.onAddEditDelete(this.props.shoeId, { ...this.state });
+            this.props.onCancel();
+          }}
+        >
+          Submit
+        </button>
+        <button onClick={this.props.onCancel}>Cancel</button>
       </div>
     );
   }

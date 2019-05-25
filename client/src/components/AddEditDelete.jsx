@@ -16,7 +16,7 @@ export default class AddEditDelete extends React.Component {
           Edit
         </button>
         <button
-          onClick={() =>
+          onClick={() => {
             this.props.onAddEditDelete(this.props.shoeId, {
               image_url: '',
               name: '',
@@ -25,17 +25,23 @@ export default class AddEditDelete extends React.Component {
               size: '',
               upc_id: ''
             })
+            this.props.onCancel();
+          }
           }
         >
           Delete
         </button>
+        <button onClick={this.props.onCancel}>Cancel</button>
       </div>
     );
 
     const Add = props => (
-      <button onClick={() => this.setState({ renderEditForm: true })}>
-        Add
-      </button>
+      <div>
+        <button onClick={() => this.setState({ renderEditForm: true })}>
+          Add
+        </button>
+        <button onClick={this.props.onCancel}>Cancel</button>
+      </div>
     );
 
     return (
@@ -43,6 +49,7 @@ export default class AddEditDelete extends React.Component {
         {this.props.view === 'add' ? (
           this.state.renderEditForm ? (
             <EditShoe
+              onCancel={this.props.onCancel}
               onAddEditDelete={this.props.onAddEditDelete}
               shoeId={this.props.shoeId}
               shoeObj={this.props.shoeObj}
@@ -52,6 +59,7 @@ export default class AddEditDelete extends React.Component {
           )
         ) : this.state.renderEditForm ? (
           <EditShoe
+            onCancel={this.props.onCancel}
             onAddEditDelete={this.props.onAddEditDelete}
             shoeId={this.props.shoeId}
             shoeObj={this.props.shoeObj}
