@@ -8,7 +8,8 @@ class App extends React.Component {
     this.state = {
       data: [],
       showPopUp: false,
-      popUpView: ''
+      popUpView: '',
+      currentShoeId: null
     };
     this.onSlotClick = this.onSlotClick.bind(this);
   }
@@ -28,7 +29,8 @@ class App extends React.Component {
   onSlotClick(e) {
     this.setState({
       showPopUp: !this.state.showPopUp,
-      popUpView: e.currentTarget.getAttribute('data-view')
+      popUpView: e.currentTarget.getAttribute('data-view'),
+      currentShoeId: e.currentTarget.dataset.shoe_id
     }, () => console.log(this.state))
   }
 
@@ -40,7 +42,8 @@ class App extends React.Component {
           {this.state.data.map((shoe, i) => (
             <Shoe
              shoe={shoe} 
-             key={i}
+             key={i * 0.1}
+             shoeId={i}
              onSlotClick={this.onSlotClick}
             />
           ))}

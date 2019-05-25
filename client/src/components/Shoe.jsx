@@ -5,6 +5,7 @@ const noShoe = props => (
     onClick={props.onSlotClick} 
     className="noShoe"
     data-view="add"
+    data-shoe_id={`${props.shoeId}`}
   >
     <h3>Click here to add a shoe!</h3>
   </div>
@@ -14,7 +15,8 @@ const hasShoe = props => (
   <div 
     onClick={props.onSlotClick} 
     className="hasShoe"
-    data-view="edit_remove"  
+    data-view="edit_remove"
+    data-shoe_id={`${props.shoeId}`}  
   >
     <img></img>
     <div>Name: {props.shoe.name}</div>
