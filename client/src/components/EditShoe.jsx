@@ -16,7 +16,7 @@ class EditShoe extends React.Component {
   }
 
   componentDidMount() {
-    const { image_url, name, brand, style, size, upc_id } = this.props;
+    const { image_url, name, brand, style, size, upc_id } = this.props.shoeObj;
     this.setState({
       image_url,
       name,

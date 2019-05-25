@@ -18,7 +18,7 @@ const hasShoe = props => (
     data-view="edit_remove"
     data-shoe_id={`${props.shoeId}`}  
   >
-    <img src={props.image_url}></img>
+    <img src={props.shoe.image_url}></img>
     <div>Name: {props.shoe.name}</div>
     <div>Brand: {props.shoe.brand}</div>
     <div>Style: {props.shoe.style}</div>
