@@ -46,18 +46,31 @@ class App extends React.Component {
     );
   }
 
-  onAddEditDelete(shoeId, newObj) {
-    let newData = [...this.state.data];
-    newData[shoeId] = newObj;
-    this.setState({
-      data: newData
-    });
+  onAddEditDelete(shoeId, newObj, addOrEdit) {
+    if (
+      addOrEdit &&
+      ( newObj.name === '' ||
+        newObj.brand === '' ||
+        newObj.style === '' ||
+        newObj.style === '' ||
+        newObj.size === '' ||
+        newObj.upc_id === '')
+    ) {
+      alert('All fields have to be filled!');
+    } else {
+      let newData = [...this.state.data];
+      newData[shoeId] = newObj;
+      this.setState({
+        data: newData
+      });
+      return true;
+    }
   }
 
   onCancel() {
     this.setState({
       showPopUp: false
-    })
+    });
   }
 
   render() {

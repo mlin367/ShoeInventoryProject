@@ -77,8 +77,9 @@ class EditShoe extends React.Component {
         />
         <button
           onClick={() => {
-            this.props.onAddEditDelete(this.props.shoeId, { ...this.state });
-            this.props.onCancel();
+            if (this.props.onAddEditDelete(this.props.shoeId, { ...this.state }, true) === true) {
+              this.props.onCancel();
+            };
           }}
         >
           Submit
