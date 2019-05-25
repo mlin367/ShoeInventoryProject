@@ -46,7 +46,7 @@ class App extends React.Component {
   }
 
   onAddEditDelete(shoeId, newObj) {
-    let newData = { ...this.state.data };
+    let newData = [...this.state.data];
     newData[shoeId] = newObj;
     this.setState({
       data: newData
