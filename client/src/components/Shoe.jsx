@@ -1,25 +1,33 @@
 import React from 'react';
 
-const noShoe = (
-  <div className="noShoe">
+const noShoe = props => (
+  <div 
+    onClick={props.onSlotClick} 
+    className="noShoe"
+    data-view="add"
+  >
     <h3>Click here to add a shoe!</h3>
   </div>
 );
 
-const hasShoe = shoe => (
-  <div className="hasShoe">
+const hasShoe = props => (
+  <div 
+    onClick={props.onSlotClick} 
+    className="hasShoe"
+    data-view="edit_remove"  
+  >
     <img></img>
-    <div>Name: {shoe.name}</div>
-    <div>Brand: {shoe.brand}</div>
-    <div>Style: {shoe.style}</div>
-    <div>Size: {shoe.size}</div>
-    <div>UPC ID: {shoe.upcId}</div>
+    <div>Name: {props.shoe.name}</div>
+    <div>Brand: {props.shoe.brand}</div>
+    <div>Style: {props.shoe.style}</div>
+    <div>Size: {props.shoe.size}</div>
+    <div>UPC ID: {props.shoe.upc_id}</div>
   </div>
 );
 
-const Shoe = ({ shoe }) => (
+const Shoe = props => (
   <div className="shoe">
-    {shoe.name ? hasShoe(shoe) : noShoe}
+    {props.shoe.name ? hasShoe(props) : noShoe(props)}
   </div>
 );
 
