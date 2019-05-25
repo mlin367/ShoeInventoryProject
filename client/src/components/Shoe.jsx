@@ -29,7 +29,7 @@ const hasShoe = props => (
 
 const Shoe = props => (
   <div className="shoe">
-    {props.shoe.name ? hasShoe(props) : noShoe(props)}
+    {props.shoe.name !== '' ? hasShoe(props) : noShoe(props)}
   </div>
 );
 

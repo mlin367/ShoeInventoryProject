@@ -12,7 +12,7 @@ class App extends React.Component {
       currentShoeId: null
     };
     this.onSlotClick = this.onSlotClick.bind(this);
-    this.onAddEdit = this.onAddEdit.bind(this);
+    this.onAddEditDelete = this.onAddEditDelete.bind(this);
   }
 
   componentDidMount() {
@@ -20,7 +20,14 @@ class App extends React.Component {
     //this would probably be pulling from an API or database
     const shoeSlots = [];
     for (let i = 0; i < 25; i++) {
-      shoeSlots.push({});
+      shoeSlots.push({
+        image_url: '',
+        name: '',
+        brand: '',
+        style: '',
+        size: '',
+        upc_id: ''
+      });
     }
     this.setState({
       data: shoeSlots
@@ -38,9 +45,9 @@ class App extends React.Component {
     );
   }
 
-  onAddEdit(props, newObj) {
+  onAddEditDelete(shoeId, newObj) {
     let newData = { ...this.state.data };
-    newData[props.shoeId] = newObj;
+    newData[shoeId] = newObj;
     this.setState({
       data: newData
     });
@@ -59,7 +66,14 @@ class App extends React.Component {
               onSlotClick={this.onSlotClick}
             />
           ))}
-          {this.state.showPopUp ? <AddEditDelete view={this.state.popUpView}/> : null}
+          {this.state.showPopUp ? (
+            <AddEditDelete
+              onAddEditDelete={this.onAddEditDelete}
+              shoeId={this.state.currentShoeId}
+              shoeObj={{ ...this.state.data[this.state.currentShoeId] }}
+              view={this.state.popUpView}
+            />
+          ) : null}
         </div>
       </div>
     );
