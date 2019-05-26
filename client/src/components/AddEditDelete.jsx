@@ -1,6 +1,7 @@
 import React from 'react';
 import EditShoe from './EditShoe';
 import '../css/AddEditDelete.css'
+import Button from '@material-ui/core/Button';
 
 export default class AddEditDelete extends React.Component {
   constructor(props) {
@@ -14,10 +15,10 @@ export default class AddEditDelete extends React.Component {
     const EditOrDelete = props => (
       <div className="editOrdelete-modal">
         <div className="editOrdelete">
-          <button onClick={() => this.setState({ renderEditForm: true })}>
+          <Button onClick={() => this.setState({ renderEditForm: true })}>
             Edit
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={() => {
               this.props.onAddEditDelete(this.props.shoeId, {
                 image_url: '',
@@ -32,8 +33,8 @@ export default class AddEditDelete extends React.Component {
             }
           >
             Delete
-          </button>
-          <button onClick={this.props.onCancel}>Cancel</button>
+          </Button>
+          <Button onClick={this.props.onCancel}>Cancel</Button>
         </div>
       </div>
     );

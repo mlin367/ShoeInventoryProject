@@ -24,3 +24,9 @@ img {
 .noShoe {
   cursor: pointer;
 }
+
+.shoeWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

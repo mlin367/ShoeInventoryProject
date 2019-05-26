@@ -58,38 +58,47 @@ class EditShoe extends React.Component {
           <br />
           OR
           <TextField
-            multiline
             label="Image Link"
             type="url"
             onChange={e => this.onInputChange(e, 'image_url')}
             value={this.state.image_url}
           />
           <TextField
-            multiline
+            inputProps={{
+              maxLength: 15,
+            }}
             label="Name"
             onChange={e => this.onInputChange(e, 'name')}
             value={this.state.name}
           />
           <TextField
-            multiline
+            inputProps={{
+              maxLength: 15,
+            }}
             label="Brand"
             onChange={e => this.onInputChange(e, 'brand')}
             value={this.state.brand}
           />
           <TextField
-            multiline
+            inputProps={{
+              maxLength: 15,
+            }}
             label="Style"
             onChange={e => this.onInputChange(e, 'style')}
             value={this.state.style}
           />
           <TextField
-            multiline
+            inputProps={{
+              maxLength: 15,
+            }}
             label="Size"
             onChange={e => this.onInputChange(e, 'size')}
             value={this.state.size}
           />
           <TextField
-            multiline
+            inputProps={{
+              maxLength: 13,
+            }}
             label="UPC ID"
             onChange={e => this.onInputChange(e, 'upc_id')}
             value={this.state.upc_id}
