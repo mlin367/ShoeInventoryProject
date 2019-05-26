@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/Shoe.css'
 
 const noShoe = props => (
   <div 

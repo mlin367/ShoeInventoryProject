@@ -1,6 +1,7 @@
 import React from 'react';
 import Shoe from './Shoe';
 import AddEditDelete from './AddEditDelete';
+import '../css/App.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -56,7 +57,7 @@ class App extends React.Component {
         newObj.size === '' ||
         newObj.upc_id === '')
     ) {
-      alert('All fields have to be filled!');
+      alert('All fields except image upload have to be filled!');
     } else {
       let newData = [...this.state.data];
       newData[shoeId] = newObj;
