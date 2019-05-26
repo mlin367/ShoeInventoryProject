@@ -7,5 +7,5 @@
 .gridWrapper {
   display: grid;
   grid-template-columns: repeat(5, 150px);
-  grid-template-rows: repeat(5, 200px);
+  grid-template-rows: repeat(5, 250px);
 }
