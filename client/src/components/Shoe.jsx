@@ -20,11 +20,13 @@ const hasShoe = props => (
     data-shoe_id={`${props.shoeId}`}  
   >
     <img src={props.shoe.image_url} alt="No Image Uploaded"></img>
-    <div>Name: {props.shoe.name}</div>
-    <div>Brand: {props.shoe.brand}</div>
-    <div>Style: {props.shoe.style}</div>
-    <div>Size: {props.shoe.size}</div>
-    <div>UPC ID: {props.shoe.upc_id}</div>
+    <div className="shoeWrapper">
+      <div>Name: {props.shoe.name}</div>
+      <div>Brand: {props.shoe.brand}</div>
+      <div>Style: {props.shoe.style}</div>
+      <div>Size: {props.shoe.size}</div>
+      <div>UPC ID: {props.shoe.upc_id}</div>
+    </div>
   </div>
 );
 

@@ -77,7 +77,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <h1>stockX Mini Shoe Inventory</h1>
+        <div className="logoWrapper">
+          <img src="https://stockx-assets.imgix.net/logo/stockx-homepage-logo-dark.svg?auto=compress,format"></img>
+          <h1>Mini Shoe Inventory</h1>
+        </div>
         <div className="gridWrapper">
           {this.state.data.map((shoe, i) => (
             <Shoe
