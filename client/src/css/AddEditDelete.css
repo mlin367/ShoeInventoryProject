@@ -3,6 +3,15 @@
   to { background-color: rgb(0, 0, 0, 0.5); }
 }
 
+@keyframes popup {
+  0%{
+    transform: scale(0.7);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
 .editOrdelete-modal {
   position: fixed;
   display: flex;
@@ -26,4 +35,6 @@
   justify-content: center;
   align-items: center;
   background-color: white;
+  animation-name: popup;
+  animation-duration: 0.2s;
 }
