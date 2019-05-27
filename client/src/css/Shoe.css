@@ -3,8 +3,27 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  border: 1px solid darkgray;
   padding: 6px;
+}
+
+.solid {
+  position: relative;
+  border: 2px solid darkgray;
+}
+
+.solid:before {
+  content: " ";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid rgb(80, 158, 47);
+}
+
+.dashed {
+  border: 2px dashed lightgray;
 }
 
 .hasShoe {
