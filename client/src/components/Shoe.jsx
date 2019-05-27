@@ -24,8 +24,8 @@ const hasShoe = props => (
       <div className="name"><strong>Name</strong>: {props.shoe.name}</div>
       <div className="brand"><strong>Brand</strong>: {props.shoe.brand}</div>
       <div className="style"><strong>Style</strong>: {props.shoe.style}</div>
-      <div><strong>Size</strong>: {props.shoe.size}</div>
-      <div><strong>UPC ID</strong>: {props.shoe.upc_id}</div>
+      <div className="size"><strong>Size</strong>: {props.shoe.size}</div>
+      <div className="upc"><strong>UPC ID</strong>: {props.shoe.upc_id}</div>
     </div>
   </div>
 );

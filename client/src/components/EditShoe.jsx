@@ -80,16 +80,13 @@ class EditShoe extends React.Component {
           />
           <TextField
             inputProps={{
-              maxLength: 2,
+              maxLength: 2
             }}
             label="Size"
             onChange={e => this.onInputChange(e, 'size')}
             value={this.state.size}
           />
           <TextField
-            inputProps={{
-              maxLength: 13,
-            }}
             label="UPC ID"
             onChange={e => this.onInputChange(e, 'upc_id')}
             value={this.state.upc_id}

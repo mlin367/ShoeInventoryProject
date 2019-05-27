@@ -27,6 +27,7 @@
 }
 
 .hasShoe {
+  overflow-y: auto;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -37,7 +38,7 @@
 
 img {
   max-width: 100%;
-  max-height: 60%;
+  max-height: 50%;
 }
 
 .noShoe {
@@ -51,7 +52,7 @@ img {
   max-width: 100%;
 }
 
-.name, .style, .brand {
+.name, .style, .brand, .size, .upc {
   word-wrap:break-word;
   max-width: 100%;
   text-align: left;
