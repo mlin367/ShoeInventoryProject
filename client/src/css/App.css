@@ -21,11 +21,22 @@ h1 {
   grid-row-gap: 10px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1320px) {
   /* For mobile phones: */
   .gridWrapper {
     display: grid;
-    grid-template-columns: repeat(2, 165px);
+    grid-template-columns: repeat(3, 215px);
+    grid-template-rows: repeat(9, 285px);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  /* For mobile phones: */
+  .gridWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
     grid-template-rows: repeat(13, 285px);
     grid-column-gap: 10px;
     grid-row-gap: 10px;
