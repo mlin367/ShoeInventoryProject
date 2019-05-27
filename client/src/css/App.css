@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Roboto"
+  font-family: 'Roboto';
 }
 
 .logoWrapper {
@@ -19,4 +19,15 @@ h1 {
   grid-template-rows: repeat(5, 300px);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .gridWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 165px);
+    grid-template-rows: repeat(13, 285px);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
 }
