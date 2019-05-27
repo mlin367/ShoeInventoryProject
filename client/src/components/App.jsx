@@ -1,6 +1,7 @@
 import React from 'react';
 import Shoe from './Shoe';
 import AddEditDelete from './AddEditDelete';
+import shoeSlots from '../../data/sampleData';
 import '../css/App.css';
 
 class App extends React.Component {
@@ -18,19 +19,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    //To generate 25 empty slots although in a real site,
-    //this would probably be pulling from an API or database
-    const shoeSlots = [];
-    for (let i = 0; i < 25; i++) {
-      shoeSlots.push({
-        image_url: '',
-        name: '',
-        brand: '',
-        style: '',
-        size: '',
-        upc_id: ''
-      });
-    }
+    //Sample data has two objects and generates 23 empty objects 
+    //although in a real site, this would probably be pulling from 
+    //an API or database
     this.setState({
       data: shoeSlots
     });

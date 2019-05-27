@@ -64,32 +64,23 @@ class EditShoe extends React.Component {
             value={this.state.image_url}
           />
           <TextField
-            inputProps={{
-              maxLength: 15,
-            }}
             label="Name"
             onChange={e => this.onInputChange(e, 'name')}
             value={this.state.name}
           />
           <TextField
-            inputProps={{
-              maxLength: 15,
-            }}
             label="Brand"
             onChange={e => this.onInputChange(e, 'brand')}
             value={this.state.brand}
           />
           <TextField
-            inputProps={{
-              maxLength: 15,
-            }}
             label="Style"
             onChange={e => this.onInputChange(e, 'style')}
             value={this.state.style}
           />
           <TextField
             inputProps={{
-              maxLength: 15,
+              maxLength: 2,
             }}
             label="Size"
             onChange={e => this.onInputChange(e, 'size')}
